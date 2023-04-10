@@ -33,6 +33,26 @@ class Action {
         this.active = false;
     }
 }
+onunload = function() {  
+    const c = [apBase, dpBase, spdBase, inventory, armory, abilities];
+    document.cookie = JSON.stringify(c) + "; expires=Mon, 10 Apr 2123 12:00:00 UTC";
+}
+
+onload = function() {
+    console.log(document.cookie)
+    const c = JSON.parse(document.cookie);
+    apBase = c[0];
+    dpBase = c[1];
+    spdBase = c[2];
+    inventory = c[3];
+    armory = c[4];
+    abilities = c[5];
+    setStats();
+    setInventory();
+    setArmory();
+    setAbilities();
+    setTemp();
+}
 function setStats() {
     document.getElementById("apBase").innerHTML = "AP: " + apBase;
     document.getElementById("dpBase").innerHTML = "DP: " + dpBase;
