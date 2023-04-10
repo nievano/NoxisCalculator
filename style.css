@@ -1,0 +1,13 @@
+* {
+    background-color: #000000;
+    font-family: "Times New Roman", Times, serif;
+    color: #ffffff;
+}
+.container {
+    display: inline-block;
+    vertical-align: top;
+    margin: 32px;
+}
+input {
+    margin: 4px;
+}

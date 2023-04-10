@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Noxis Calc</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="container">
+            <div>
+                <h1>Enter Stats</h1>
+                <form>
+                    <label>AP</label>
+                    <input type="number" id="apIn"><br>
+                    <label>DP</label>
+                    <input type="number" id="dpIn"><br>
+                    <label>Spd</label>
+                    <input type="number" id="spdIn"><br>
+                    <input type="button" value="Submit" onclick="return addStats()">
+                </form>
+            </div>
+            <div>
+                <h1>Base Stats</h1>
+                <p id="apBase">AP: 0</p>
+                <p id="dpBase">DP: 0</p>
+                <p id="spdBase">Spd: 0</p>
+            </div>
+            <div>
+                <h1>Total Stats</h1>
+                <p id="apTemp">AP: 0</p>
+                <p id="dpTemp">DP: 0</p>
+                <p id="spdTemp">Spd: 0</p>
+            </div>
+         </div>
+         <div class="container">
+            <div>
+                <h1>Enter Item</h1>
+                <form>
+                    <label>Name</label>
+                    <input type="text" id="nameItem"><br>
+                    <label>AP</label>
+                    <input type="number" id="apItem"><br>
+                    <label>DP</label>
+                    <input type="number" id="dpItem"><br>
+                    <label>Spd</label>
+                    <input type="number" id="spdItem"><br>
+                    <input type="button" value="Add" onclick="return addInventory()">
+                </form>
+            </div>
+            <div id="inventory">
+                <h1>Inventory</h1>
+            </div>
+        </div>
+        <div class="container">
+            <div>
+                <h1>Enter Weapon</h1>
+                <form>
+                    <label>Name</label>
+                    <input type="text" id="nameArm"><br>
+                    <label>AP</label>
+                    <input type="number" id="apArm"><br>
+                    <label>DP</label>
+                    <input type="number" id="dpArm"><br>
+                    <label>Spd</label>
+                    <input type="number" id="spdArm"><br>
+                    <input type="button" value="Add" onclick="return addArmory()">
+                </form>
+            </div>
+            <div id="armory">
+                <h1>Weapons</h1>
+            </div>
+        </div>
+        <div class="container">
+            <div>
+                <h1>Enter Ability</h1>
+                <form>
+                    <label>Name</label>
+                    <input type="text" id="nameAct"><br>
+                    <label>AP</label>
+                    <input type="number" id="apAct"><br>
+                    <label>DP</label>
+                    <input type="number" id="dpAct"><br>
+                    <label>Spd</label>
+                    <input type="number" id="spdAct"><br>
+                    <input type="button" value="Add" onclick="return addAbility()">
+                </form>
+            </div>
+            <div id="abilities">
+                <h1>Abilities</h1>
+            </div>
+        </div>
+        <script src="app.js"></script>
+    </body>
+</html>
