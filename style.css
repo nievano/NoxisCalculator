@@ -8,6 +8,14 @@
     vertical-align: top;
     margin: 32px;
 }
-input {
+form input {
     margin: 4px;
+    padding: 4px;
+}
+form {
+    display: flex;
+    flex-flow: column;
+}
+p {
+    padding: 4px;
 }

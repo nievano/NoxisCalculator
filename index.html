@@ -6,27 +6,31 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
+        <div>
+            <h1>Noxis Void Calcualtor</h1>
+            <button onclick="return clearAll()">Clear</button>
+        </div>
         <div class="container">
             <div>
-                <h1>Enter Stats</h1>
+                <h2>Enter Stats</h2>
                 <form>
                     <label>AP</label>
-                    <input type="number" id="apIn" value="0"><br>
+                    <input type="number" id="apIn" value="0">
                     <label>DP</label>
-                    <input type="number" id="dpIn" value="0"><br>
+                    <input type="number" id="dpIn" value="0">
                     <label>Spd</label>
-                    <input type="number" id="spdIn" value="0"><br>
+                    <input type="number" id="spdIn" value="0">
                     <input type="button" value="Submit" onclick="return addStats()">
                 </form>
             </div>
             <div>
-                <h1>Base Stats</h1>
+                <h2>Base Stats</h2>
                 <p id="apBase">AP: 0</p>
                 <p id="dpBase">DP: 0</p>
                 <p id="spdBase">Spd: 0</p>
             </div>
             <div>
-                <h1>Total Stats</h1>
+                <h2>Total Stats</h2>
                 <p id="apTemp">AP: 0</p>
                 <p id="dpTemp">DP: 0</p>
                 <p id="spdTemp">Spd: 0</p>
@@ -34,59 +38,78 @@
          </div>
          <div class="container">
             <div>
-                <h1>Add Item</h1>
+                <h2>Add Item</h2>
                 <form>
                     <label>Name</label>
-                    <input type="text" id="nameItem" value=""><br>
+                    <input type="text" id="nameItem" value="">
                     <label>AP</label>
-                    <input type="number" id="apItem" value="0"><br>
+                    <input type="number" id="apItem" value="0">
                     <label>DP</label>
-                    <input type="number" id="dpItem" value="0"><br>
+                    <input type="number" id="dpItem" value="0">
                     <label>Spd</label>
-                    <input type="number" id="spdItem" value="0"><br>
+                    <input type="number" id="spdItem" value="0">
                     <input type="button" value="Add" onclick="return addInventory()">
                 </form>
             </div>
             <div id="inventory">
-                <h1>Inventory</h1>
+                <h2>Inventory</h2>
             </div>
         </div>
         <div class="container">
             <div>
-                <h1>Add Weapon</h1>
+                <h2>Add Weapon</h2>
                 <form>
                     <label>Name</label>
-                    <input type="text" id="nameArm" value=""><br>
+                    <input type="text" id="nameArm" value="">
                     <label>AP</label>
-                    <input type="number" id="apArm" value="0"><br>
+                    <input type="number" id="apArm" value="0">
                     <label>DP</label>
-                    <input type="number" id="dpArm" value="0"><br>
+                    <input type="number" id="dpArm" value="0">
                     <label>Spd</label>
-                    <input type="number" id="spdArm" value="0"><br>
+                    <input type="number" id="spdArm" value="0">
                     <input type="button" value="Add" onclick="return addArmory()">
                 </form>
             </div>
             <div id="armory">
-                <h1>Weapons</h1>
+                <h2>Weapons</h2>
             </div>
         </div>
         <div class="container">
             <div>
-                <h1>Add Ability</h1>
+                <h2>Add Ability</h2>
                 <form>
                     <label>Name</label>
-                    <input type="text" id="nameAct" value=""><br>
+                    <input type="text" id="nameAct" value="">
                     <label>AP</label>
-                    <input type="number" id="apAct" value="0"><br>
+                    <input type="number" id="apAct" value="0">
                     <label>DP</label>
-                    <input type="number" id="dpAct" value="0"><br>
+                    <input type="number" id="dpAct" value="0">
                     <label>Spd</label>
-                    <input type="number" id="spdAct" value="0"><br>
+                    <input type="number" id="spdAct" value="0">
                     <input type="button" value="Add" onclick="return addAbility()">
                 </form>
             </div>
             <div id="abilities">
-                <h1>Abilities</h1>
+                <h2>Abilities</h2>
+            </div>
+        </div>
+        <div class="container">
+            <div>
+                <h2>Add Effect</h2>
+                <form>
+                    <label>Name</label>
+                    <input type="text" id="nameEff" value="">
+                    <label>AP</label>
+                    <input type="number" id="apEff" value="0">
+                    <label>DP</label>
+                    <input type="number" id="dpEff" value="0">
+                    <label>Spd</label>
+                    <input type="number" id="spdEff" value="0">
+                    <input type="button" value="Add" onclick="return addEffect()">
+                </form>
+            </div>
+            <div id="effects">
+                <h2>Effects</h2>
             </div>
         </div>
         <script src="app.js"></script>

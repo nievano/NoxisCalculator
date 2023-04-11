@@ -7,6 +7,7 @@ let spdTemp = 0;
 let inventory = [];
 let armory = [];
 let abilities = [];
+let effects = [];
 class Item {
     constructor(name, ap, dp, spd) {
         this.name = name;
@@ -33,13 +34,19 @@ class Action {
         this.active = false;
     }
 }
+class Effect {
+    constructor(name, ap, dp, spd) {
+        this.name = name;
+        this.ap = ap;
+        this.dp = dp;
+        this.spd = spd;
+    }
+}
 onunload = function() {  
-    const c = [apBase, dpBase, spdBase, inventory, armory, abilities];
+    const c = [apBase, dpBase, spdBase, inventory, armory, abilities, effects];
     document.cookie = JSON.stringify(c) + "; expires=Mon, 10 Apr 2123 12:00:00 UTC";
 }
-
 onload = function() {
-    console.log(document.cookie)
     const c = JSON.parse(document.cookie);
     apBase = c[0];
     dpBase = c[1];
@@ -47,10 +54,27 @@ onload = function() {
     inventory = c[3];
     armory = c[4];
     abilities = c[5];
+    effects = c[6];
     setStats();
     setInventory();
     setArmory();
     setAbilities();
+    setEffects();
+    setTemp();
+}
+function clearAll() {
+    apBase = 0;
+    dpBase = 0;;
+    spdBase = 0;
+    inventory = [];
+    armory = [];
+    abilities = [];
+    effects = [];
+    setStats();
+    setInventory();
+    setArmory();
+    setAbilities();
+    setEffects();
     setTemp();
 }
 function setStats() {
@@ -87,6 +111,11 @@ function setTemp() {
             dpTemp = Number(dpTemp) + Number(abilities[i].dp);
             spdTemp = Number(spdTemp) + Number(abilities[i].spd);
         }
+    }
+    for(i in effects) {
+        apTemp = Number(apTemp) + Number(effects[i].ap);
+        dpTemp = Number(dpTemp) + Number(effects[i].dp);
+        spdTemp = Number(spdTemp) + Number(effects[i].spd);
     }
     document.getElementById("apTemp").innerHTML = "AP: " + apTemp;
     document.getElementById("dpTemp").innerHTML = "DP: " + dpTemp;
@@ -183,5 +212,37 @@ function addAbility() {
 function toggleAction(action) {
     abilities[action].active = !abilities[action].active;
     setAbilities();
+    setTemp();
+}
+function setEffects() {
+    while(document.getElementById("effects").childElementCount > 1) 
+        document.getElementById("effects").removeChild(document.getElementById("effects").lastChild);
+    for(i in effects) {
+        const p = document.createElement("p");
+        p.setAttribute("onclick", `removeEffect(${i})`);
+        p.setAttribute("onmouseover", "this.style.outline = 'thin solid #ffffff'");
+        p.setAttribute("onmouseleave", "this.style.outline = ''");
+        let s = effects[i].name;
+        if(effects[i].ap != 0) s += " (" + (effects[i].ap < 0 ? "" : "+") + effects[i].ap + " AP)";
+        if(effects[i].dp != 0) s += " (" + (effects[i].dp < 0 ? "" : "+") + effects[i].dp + " DP)";
+        if(effects[i].spd != 0) s += " (" + (effects[i].spd < 0 ? "" : "+") + effects[i].spd + " Spd)";
+        p.innerHTML = s;
+        document.getElementById("effects").append(p);
+    }
+}
+function addEffect() {
+    i = new Effect(
+        document.getElementById("nameEff").value,
+        document.getElementById("apEff").value,
+        document.getElementById("dpEff").value,
+        document.getElementById("spdEff").value
+    );
+    effects.push(i);
+    setEffects();
+    setTemp();
+}
+function removeEffect(effect) {
+    effects.splice(effect, 1);
+    setEffects();
     setTemp();
 }
