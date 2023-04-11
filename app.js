@@ -8,6 +8,7 @@ let inventory = [];
 let armory = [];
 let abilities = [];
 let effects = [];
+let saves = [];
 class Item {
     constructor(name, ap, dp, spd) {
         this.name = name;
@@ -43,7 +44,7 @@ class Effect {
     }
 }
 onunload = function() {  
-    const c = [apBase, dpBase, spdBase, inventory, armory, abilities, effects];
+    const c = [apBase, dpBase, spdBase, inventory, armory, abilities, effects, saves];
     document.cookie = JSON.stringify(c) + "; expires=Mon, 10 Apr 2123 12:00:00 UTC";
 }
 onload = function() {
@@ -55,12 +56,18 @@ onload = function() {
     armory = c[4];
     abilities = c[5];
     effects = c[6];
+    saves = c[7];
     setStats();
     setInventory();
     setArmory();
     setAbilities();
     setEffects();
     setTemp();
+    for(i in saves) {
+        const p = document.createElement("option");
+        p.innerHTML = JSON.parse(saves[i])[0];
+        document.getElementById("nameLoad").append(p);
+    }
 }
 function clearAll() {
     apBase = 0;
@@ -76,6 +83,43 @@ function clearAll() {
     setAbilities();
     setEffects();
     setTemp();
+}
+function addSave() {
+    const c = [document.getElementById("nameSave").value, apBase, dpBase, spdBase, inventory, armory, abilities, effects];
+    for(i in saves) {
+        if(JSON.parse(saves[i])[0] == document.getElementById("nameSave").value) saves.splice(i, 1);
+    }
+    saves.push(JSON.stringify(c));
+    setSaves();
+}
+function setSaves() {
+    while(document.getElementById("nameLoad").childElementCount > 0) 
+        document.getElementById("nameLoad").removeChild(document.getElementById("nameLoad").lastChild);
+    for(i in saves) {
+        const p = document.createElement("option");
+        p.innerHTML = JSON.parse(saves[i])[0];
+        document.getElementById("nameLoad").append(p);
+    }
+}
+function loadAll() {
+    for(i in saves) {
+        const c = JSON.parse(saves[i]);
+        if(c[0] == document.getElementById("nameLoad").value) {
+            apBase = c[1];
+            dpBase = c[2];
+            spdBase = c[3];
+            inventory = c[4];
+            armory = c[5];
+            abilities = c[6];
+            effects = c[7];
+            setStats();
+            setInventory();
+            setArmory();
+            setAbilities();
+            setEffects();
+            setTemp();
+        }
+    }
 }
 function setStats() {
     document.getElementById("apBase").innerHTML = "AP: " + apBase;
