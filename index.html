@@ -4,15 +4,35 @@
         <meta charset="utf-8">
         <title>Noxis Calc</title>
         <link rel="stylesheet" href="style.css">
+        <link rel="icon" type="image" href="isopod.png">
     </head>
     <body>
         <div>
-            <h1>Noxis Void Calcualtor</h1>
+            <h1>Noxis Void Calculator</h1>
             <button onclick="return clearAll()">Clear</button>
             <button onclick="return addSave()">Save</button>
             <input type="text" id="nameSave" value="">
             <button onclick="return loadAll()">Load</button>
             <select id="nameLoad"></select>
+        </div>
+        <div class="container">
+            <div>
+                <h2>Total Stats</h2>
+                <p id="apTemp">AP: 0</p>
+                <p id="dpTemp">DP: 0</p>
+                <p id="spdTemp">Spd: 0</p>
+            </div>
+            <div>
+                <h2>Stat Tracker</h2>
+                <form>
+                    <label>Sensu</label>
+                    <input type="number" value="0">
+                    <label>Barrier</label>
+                    <input type="number" value="0">
+                    <label>HP</label>
+                    <input type="number" value="0">
+                </form>
+            </div>
         </div>
         <div class="container">
             <div>
@@ -32,12 +52,6 @@
                 <p id="apBase">AP: 0</p>
                 <p id="dpBase">DP: 0</p>
                 <p id="spdBase">Spd: 0</p>
-            </div>
-            <div>
-                <h2>Total Stats</h2>
-                <p id="apTemp">AP: 0</p>
-                <p id="dpTemp">DP: 0</p>
-                <p id="spdTemp">Spd: 0</p>
             </div>
          </div>
          <div class="container">
